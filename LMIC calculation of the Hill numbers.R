@@ -1,10 +1,5 @@
 #Calculation of the Hill numbers in LICM dataset
 
-#opmerkingen: Benin, Cameroun heeft enkel kids
-#Alleen adults mee in de lijst: 6218 totaal naar 2185
-#Alle id's met ontbrekende MAR waarden worden verwijderd 2185 naar 2148
-
-
 
 #packages
 library('dplyr')
@@ -16,7 +11,6 @@ library('tidyr')
 # 1) FULL DATA weight-based
 data<-as.data.frame(fread('ExtraData/biodiversity data file clean.csv', stringsAsFactors = FALSE))
 
-#hier aan het werken
 A_gram<-data%>%
   select(id, country, MAR, speciesnr, foodweight,childadult)%>%
   filter(speciesnr!="")%>%
@@ -47,7 +41,7 @@ A_indices_gram<-data.frame(
 write.csv(A_indices_gram, "clean scripts/A_indices_gram.csv")
 
 
-# 1) FULL DATA energy-based
+# 2) FULL DATA energy-based
 data<-as.data.frame(fread('ExtraData/biodiversity data file clean.csv', stringsAsFactors = FALSE))
 
 #hier aan het werken
